@@ -4,28 +4,28 @@
 <h1 class="text-center">{{ playlist.title }}</h1>
 <p class="text-center">Genre: {{ playlist.genre }}</p>
 
-<div class="card p-3 m-3">
-  <p><em>Update Playlist:</em></p>
+<div class="card m-5 p-3 d-flex flex-column align-items-center w-50 h-50">
+  <h3 style="color: #7fba8b;">Update Playlist:</h3>
   <form method="POST">
     <fieldset>
       <legend>Edit:</legend>
       {{ form.csrf_token }}
 
       {{ form.title.label }} 
-      {{ form.title }}
+      <p>{{ form.title }}</p>
       
       {{ form.genre.label }} 
-      {{ form.genre }}
+      <p>{{ form.genre }}</p>
 
-      {{ form.submit }}
+      <p>{{ form.submit }}</p>
     </fieldset>
   </form>
 </div>
 
-<h3 class="p-3">Songs:</h3>
-<div class="songs p-5">
+<h3 class="text-center" style="color: #7fba8b;">Songs:</h3>
+<div class="p-5 d-flex flex-wrap">
   {% for song in playlist.songs %}
-  <div class="song-details">
+  <div class="container col-3 col-3 col-3">
     <a href="/song/{{ song.id }}"><img src="{{ song.photo_url }}" alt="{{ song.name }}" width="200px">
     <p>{{ song.name }}</p>
   </div>

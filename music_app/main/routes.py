@@ -16,6 +16,7 @@ def home():
 # playlist routes
 
 @main.route('/new_playlist', methods=['GET', 'POST'])
+@login_required
 def new_playlist():
   form = PlaylistForm()
 
@@ -28,10 +29,12 @@ def new_playlist():
     db.session.commit()
     flash('Successfully Created Playlist.')
     return redirect(url_for('main.playlist_details', playlist_id=new_playlist.id))
+    
   return render_template('new_playlist.html', form=form)
 
 
 @main.route('/playlist/<playlist_id>', methods=['GET', 'POST'])
+@login_required
 def playlist_details(playlist_id):
   playlist = Playlist.query.get(playlist_id)
   form = PlaylistForm(obj=playlist)
@@ -51,6 +54,7 @@ def playlist_details(playlist_id):
 # song routes
 
 @main.route('/new_song', methods=['GET', 'POST'])
+@login_required
 def new_song():
   form = SongForm()
 
@@ -64,11 +68,13 @@ def new_song():
     db.session.add(new_song)
     db.session.commit()
     flash('Successfully Added a New Song.')
-    return redirect(url_for('main.song_details'))
+    return redirect(url_for('main.song_details', song_id=new_song.id))
 
   return render_template('new_song.html', form=form)
 
+
 @main.route('/song/<song_id>', methods=['GET', 'POST'])
+@login_required
 def song_details(song_id):
   song = Song.query.get(song_id)
   form = SongForm(obj=song)
@@ -82,5 +88,6 @@ def song_details(song_id):
     db.session.add(song)
     db.session.commit()
     flash('Successfully Updated Song.')
+    
     return redirect(url_for('main.song_details', song_id=song.id))
   return render_template('song_details.html', song=song, form=form)
