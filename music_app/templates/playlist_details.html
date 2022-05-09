@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-center">{{ playlist.title }}</h1>
+<p class="text-center">Genre: {{ playlist.genre }}</p>
+
+<div class="card p-3 m-3">
+  <p><em>Update Playlist:</em></p>
+  <form method="POST">
+    <fieldset>
+      <legend>Edit:</legend>
+      {{ form.csrf_token }}
+
+      {{ form.title.label }} 
+      {{ form.title }}
+      
+      {{ form.genre.label }} 
+      {{ form.genre }}
+
+      {{ form.submit }}
+    </fieldset>
+  </form>
+</div>
+
+<h3 class="p-3">Songs:</h3>
+<div class="songs p-5">
+  {% for song in playlist.songs %}
+  <div class="song-details">
+    <a href="/song/{{ song.id }}"><img src="{{ song.photo_url }}" alt="{{ song.name }}" width="200px">
+    <p>{{ song.name }}</p>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+
+{% endblock %}

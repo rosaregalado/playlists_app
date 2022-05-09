@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>{{ song.name }}</h1>
+<p><strong>Artist:</strong>{{ song.artist }}</p>
+<p><img src="{{ song.photo_url }}" width="250px" height="250px"></p>
+<p>Playlist: {{ song.playlist.title }}</p>
+
+<div>
+  <h2>Update Song Details</h2>
+  <form method="POST">
+    {{ form.csrf_token }}
+
+    {{ form.name.label }}
+    {{ form.name }}
+
+    {{ form.artist.label }}
+    {{ form.artist }}
+
+    {{ form.photo_url.label }}
+    {{ form.photo_url }}
+
+    {{ form.playlist.label }}
+    {{ form.playlist }}
+
+    {{ form.submit }}
+  </form>
+</div>
+{% endblock %}

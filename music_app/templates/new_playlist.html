@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="card m-3 p-3 d-flex flex-column align-items-center w-50 h-50">
+  <h1>Create New Playlist</h1>
+  <form method="POST">
+    <fieldset>
+      {{ form.csrf_token }}
+
+      {{ form.title.label }}
+      <p>{{ form.title }}</p>
+
+      {{ form.genre.label }}
+      <p>{{ form.genre }}</p>
+
+      {{ form.submit }}
+
+    </fieldset>
+  </form>
+</div>
+
+{% endblock %}
