@@ -1,38 +1,41 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1 class="text-center">{{ playlist.title }}</h1>
+<h1 class="text-center pt-4">{{ playlist.title }}</h1>
 <p class="text-center">Genre: {{ playlist.genre }}</p>
 
-<div class="card m-5 p-3 d-flex flex-column align-items-center w-50 h-50">
-  <h3 style="color: #7fba8b;">Update Playlist:</h3>
-  <form method="POST">
-    <fieldset>
-      <legend>Edit:</legend>
-      {{ form.csrf_token }}
-
-      {{ form.title.label }} 
-      <p>{{ form.title }}</p>
-      
-      {{ form.genre.label }} 
-      <p>{{ form.genre }}</p>
-
-      <p>{{ form.submit }}</p>
-    </fieldset>
-  </form>
-</div>
-
-<h3 class="text-center" style="color: #7fba8b;">Songs:</h3>
-<div class="p-5 d-flex flex-wrap">
-  {% for song in playlist.songs %}
-  <div class="container col-3 col-3 col-3">
-    <a href="/song/{{ song.id }}"><img src="{{ song.photo_url }}" alt="{{ song.name }}" width="200px">
-    <p>{{ song.name }}</p>
+<div class="d-flex flex-column align-items-center">
+  <div class="card m-5 p-3 d-flex flex-column align-items-center w-50 h-50 text-white bg-dark">
+    <h3 style="color: #7DB6A7;">Update Playlist:</h3>
+    <form method="POST">
+      <fieldset>
+        <legend>Edit:</legend>
+        {{ form.csrf_token }}
+  
+        {{ form.title.label }} 
+        <p>{{ form.title }}</p>
+        
+        {{ form.genre.label }} 
+        <p>{{ form.genre }}</p>
+  
+        <p>{{ form.submit }}</p>
+      </fieldset>
+    </form>
   </div>
-  {% endfor %}
 </div>
 
-
+<div class="pt-5">
+  <h3 class="text-center fs-1" style="color: #7DB6A7;">Songs:</h3>
+  <div class="p-5 d-flex flex-wrap">
+    {% for song in playlist.songs %}
+    <div class="container col-4 col-4 col-4 p-3">
+      <a href="/song/{{ song.id }}"><img src="{{ song.photo_url }}" style="border: 1px solid black;" alt="{{ song.name }}" width="200px">
+      <p class="text-black fs-4 py-1">{{ song.name }}</p>
+      <p>Album:</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 
 {% endblock %}

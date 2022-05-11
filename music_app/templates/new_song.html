@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="card m-3 p-3 d-flex flex-column align-items-center w-50 h-50">
-  <h1 style="color: #7fba8b;">Add New Song</h1>
-  <form method="POST">
-    <fieldset>
-      {{ form.csrf_token }}
-
-      {{ form.name.label }}
-      <p>{{ form.name }}</p>
-
-      {{ form.artist.label }}
-      <p>{{ form.artist }}</p>
-
-      {{ form.photo_url.label }}
-      <p>{{ form.photo_url }}</p>
-
-      {{ form.playlist.label }}
-      <p>{{ form.playlist }}</p>
-
-      <p>{{ form.submit }}</p>
-    </fieldset>
-  </form>
+<div class="w-50 h-50">
+  <div class="card m-3 p-3 d-flex flex-column align-items-center bg-dark text-white">
+    <h1 style="color: #7DB6A7;">Add New Song</h1>
+    <form method="POST">
+      <fieldset>
+        {{ form.csrf_token }}
+  
+        {{ form.name.label }}
+        <p>{{ form.name }}</p>
+  
+        {{ form.artist.label }}
+        <p>{{ form.artist }}</p>
+  
+        {{ form.photo_url.label }}
+        <p>{{ form.photo_url }}</p>
+  
+        {{ form.playlist.label }}
+        <p>{{ form.playlist }}</p>
+  
+        <p>{{ form.submit }}</p>
+      </fieldset>
+    </form>
+  </div>  
 </div>
 
 {% endblock %}

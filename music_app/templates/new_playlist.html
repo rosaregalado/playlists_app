@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="card m-3 p-3 d-flex flex-column align-items-center w-50 h-50">
-  <h1 style="color: #7fba8b;">Create New Playlist</h1>
-  <form method="POST">
-    <fieldset>
-      {{ form.csrf_token }}
-
-      {{ form.title.label }}
-      <p>{{ form.title }}</p>
-
-      {{ form.genre.label }}
-      <p>{{ form.genre }}</p>
-
-      {{ form.submit }}
-
-    </fieldset>
-  </form>
+<div class="w-50 h-50 ">
+  <div class="card m-3 p-3 d-flex flex-column align-items-center bg-dark text-white">
+    <h1 style="color: #7DB6A7;">Create New Playlist</h1>
+    <form method="POST">
+      <fieldset>
+        {{ form.csrf_token }}
+  
+        {{ form.title.label }}
+        <p>{{ form.title }}</p>
+  
+        {{ form.genre.label }}
+        <p>{{ form.genre }}</p>
+  
+        <p>{{ form.submit }}</p>
+  
+      </fieldset>
+    </form>
+  </div>
 </div>
+
 
 {% endblock %}

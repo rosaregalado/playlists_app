@@ -6,11 +6,11 @@
   <h1 style="color: black;">{{ song.name }}</h1>
   <p><strong>Artist: </strong>{{ song.artist }}</p>
   <p><img src="{{ song.photo_url }}" width="250px" height="250px"></p>
-  <p><strong>Playlist: </strong>{{ song.playlist.title }}</p>
+  <p><strong>Playlist: </strong><a></a>{{ song.playlist.title }}</p>
 </div>
 
-<div class="card m-3 p-3 d-flex flex-column align-items-center w-50 h-50">
-  <h2 style="color: #7fba8b;">Update Song Details</h2>
+<div class="card m-3 p-3 d-flex flex-column align-items-center w-50 h-50 text-white bg-dark">
+  <h2 style="color: #7DB6A7;">Update Song Details</h2>
   <form method="POST">
     {{ form.csrf_token }}
 

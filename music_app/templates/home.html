@@ -2,13 +2,16 @@
 {% block content %}
 
 <div class="m-5">
-  <h2 class="text-center" style="color: #6aa376;">Spotify Playlists</h2>
-  <p class="text-center" style="color: black;">Create your own playlists!</p>
+  <img src="/static/images/logo.png" alt="logo" width="150px" height="150px">
+  <h2 class="py-2" style="color: #7DB6A7;">Playlister</h2>
+  <p style="color: black;">Create your own playlists!</p>
+
 </div>
 
+<h4 class="text-center fs-1">My Playlists</h4>
 <div class="playlists d-flex flex-wrap">
   {% for playlist in all_playlists %}
-  <div class="card p-3 my-5 mx-5 col-3 col-3 col-3 d-flex flex-column align-items-center text-white" style="background-color: #97cca2;">
+  <div class="card p-3 my-5 mx-5 col-3 col-3 col-3 d-flex flex-column align-items-center text-white" style="background-color: #7DB6A7;">
     <a class="text-decoration-none fs-4" style="color: black;" href="/playlist/{{ playlist.id }}"><strong>{{ playlist.title }}</strong></a>
     <p>{{ playlist.songs|length }} songs</p>
     <p>Genre: {{ playlist.genre }}</p>
