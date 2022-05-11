@@ -1,4 +1,4 @@
-Playlister 
+Playlister: 
 An app where you can create your own playlists! 
 ---------------------------------------------------------------------------------
 
